@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Container, Flex, Heading, Text, VStack, HStack, Link, Divider, Input, Textarea, Button } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text, VStack, HStack, Link, Divider, Input, Textarea, Button, useColorModeValue } from "@chakra-ui/react";
 import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Index = () => {
@@ -20,16 +20,23 @@ const Index = () => {
     setNewPost({ title: "", content: "", category: "" });
   };
 
+  const bg = useColorModeValue("white", "gray.800");
+  const color = useColorModeValue("black", "white");
+  const navBg = useColorModeValue("brand.700", "gray.900");
+  const navColor = useColorModeValue("white", "gray.100");
+  const linkHoverColor = useColorModeValue("brand.900", "gray.300");
+
   return (
+    <Box bg={bg} color={color}>
     <Box>
       {/* Navigation Bar */}
-      <Box as="nav" bg="brand.700" color="white" py={4} px={8}>
+      <Box as="nav" bg={navBg} color={navColor} py={4} px={8}>
         <Flex justify="space-between" align="center">
           <Heading as="h1" size="lg">My Blog</Heading>
           <HStack spacing={4}>
-            <Link href="#home" _hover={{ textDecoration: "none", color: "brand.900" }}>Home</Link>
-            <Link href="#posts" _hover={{ textDecoration: "none", color: "brand.900" }}>Posts</Link>
-            <Link href="#contact" _hover={{ textDecoration: "none", color: "brand.900" }}>Contact</Link>
+            <Link href="#home" _hover={{ textDecoration: "none", color: linkHoverColor }}>Home</Link>
+            <Link href="#posts" _hover={{ textDecoration: "none", color: linkHoverColor }}>Posts</Link>
+            <Link href="#contact" _hover={{ textDecoration: "none", color: linkHoverColor }}>Contact</Link>
           </HStack>
         </Flex>
       </Box>
@@ -83,9 +90,9 @@ const Index = () => {
           <Box flex="1" mt={{ base: 8, md: 0 }}>
             <Heading as="h3" size="lg" mb={4}>Categories</Heading>
             <VStack spacing={4} align="stretch">
-              <Link href="#category1" _hover={{ textDecoration: "none", color: "brand.700" }}>Category 1</Link>
-              <Link href="#category2" _hover={{ textDecoration: "none", color: "brand.700" }}>Category 2</Link>
-              <Link href="#category3" _hover={{ textDecoration: "none", color: "brand.700" }}>Category 3</Link>
+              <Link href="#category1" _hover={{ textDecoration: "none", color: linkHoverColor }}>Category 1</Link>
+              <Link href="#category2" _hover={{ textDecoration: "none", color: linkHoverColor }}>Category 2</Link>
+              <Link href="#category3" _hover={{ textDecoration: "none", color: linkHoverColor }}>Category 3</Link>
               {/* Add more categories here */}
             </VStack>
 
@@ -93,9 +100,9 @@ const Index = () => {
 
             <Heading as="h3" size="lg" mb={4}>Recent Posts</Heading>
             <VStack spacing={4} align="stretch">
-              <Link href="#post1" _hover={{ textDecoration: "none", color: "brand.700" }}>Recent Post 1</Link>
-              <Link href="#post2" _hover={{ textDecoration: "none", color: "brand.700" }}>Recent Post 2</Link>
-              <Link href="#post3" _hover={{ textDecoration: "none", color: "brand.700" }}>Recent Post 3</Link>
+              <Link href="#post1" _hover={{ textDecoration: "none", color: linkHoverColor }}>Recent Post 1</Link>
+              <Link href="#post2" _hover={{ textDecoration: "none", color: linkHoverColor }}>Recent Post 2</Link>
+              <Link href="#post3" _hover={{ textDecoration: "none", color: linkHoverColor }}>Recent Post 3</Link>
               {/* Add more recent posts here */}
             </VStack>
           </Box>
@@ -103,7 +110,7 @@ const Index = () => {
       </Container>
 
       {/* Footer */}
-      <Box as="footer" bg="brand.700" color="white" py={4} mt={8}>
+      <Box as="footer" bg={navBg} color={navColor} py={4} mt={8}>
         <Container maxW="container.xl">
           <Flex justify="space-between" align="center">
             <Text>&copy; 2023 My Blog. All rights reserved.</Text>
